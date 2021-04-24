@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import { bytesToHumanReadable } from "./util";
 //import { ServerStatus } from "interfaces/status";
 
 export interface ServerStatus {
@@ -47,8 +48,8 @@ export const App = (): JSX.Element => {
   return (
     <div className="App">
       <header className="App-header">
-        <p>{`Free Memory ${serverStatus.freeMemory} bytes`}</p>
-        <p>{`Total Memory ${serverStatus.totalMemory} bytes`}</p>
+        <p>{`Free Memory ${bytesToHumanReadable(serverStatus.freeMemory)}`}</p>
+        <p>{`Total Memory ${bytesToHumanReadable(serverStatus.totalMemory)}`}</p>
         <p>{`Uptime ${serverStatus.uptime} seconds`}</p>
         <p>{`Server time ${serverStatus.timestamp}`}</p>
       </header>
